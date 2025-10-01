@@ -1,0 +1,94 @@
+/* homepage css */
+.homepage body, html {
+    margin: 0;              
+    padding: 0;               
+    font-family: "Times New Roman", Times, serif;  
+    font-size: medium;        
+    line-height: normal;      
+    background-color: #fff;   
+    color: #000;              
+    text-align: start;        
+    word-wrap: normal;        
+    overflow: visible;        
+    height: 100vh;                       
+}
+.homepage .header {
+    padding: 4px 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: #efebeb;
+    border-bottom: 0px solid #ccc;
+}
+.homepage .header a {
+    margin-right:25px;
+    text-decoration: none;
+    color: #efebeb;
+}
+.homepage .header .left-links a{
+    margin-right:4px;
+    text-decoration: none;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #333;
+}
+.homepage .left-links a{
+    margin: 0 10px;
+    text-decoration: none;
+    color: #333;
+}
+.homepage .awaybtn {
+    justify-content: space-between;
+}
+.homepage .sidebar a:hover {
+    background-color: #000;
+}
+.homepage button {
+    padding: 10px 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: #333;
+    text-decoration-color: white;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+} 
+.homepage button:hover {
+    background-color: #000;
+}
+.homepage body{
+    background-color: #ffffff;
+}
+.homepage .container {
+    justify-content: center;font-family: 'Inter';
+    display: flex;
+    height: 70vh;
+    min-width: auto;
+    flex-direction: row;
+}
+.homepage .container button {
+    margin: 60px;
+    padding: 20px;
+}
+.homepage .main-content {
+    text-align: center;
+    width: auto;
+}
+.homepage .banner {
+    width: 1300px;
+    padding: 1px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: white;
+    text-align: center;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+.homepage .banner h2 a {
+    text-decoration: none;
+    text-decoration-color: #ddd;
+    color: #333;
+}
+.homepage .loginbar {                  
+    padding: 10px;
+    box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.1); 
+}
+
+
+
