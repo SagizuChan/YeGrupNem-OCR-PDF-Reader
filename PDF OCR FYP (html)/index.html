@@ -1,44 +1,72 @@
 <!DOCTYPE html>
+
 <html lang="en">
+<head>
+    <title>OCR PDF Reader</title>
+    <meta charset="utf-8">
+    <meta name="group" content="1">
+    <meta name="description" content="Reader">
+    <meta name="keywords" content="OCR, PDF, image, picture, reader, converter">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="homepage">
 
-<!-- Description: Assignemnt 2: Homepage-->
-<!-- Group: 5 -->
-<!-- Date: 11 Oct 2024-->
-<!-- Validated: Ok 11 Oct 2024 -->
- 
-    <head>
-        <title>OCR PDF Reader</title>
-        <div class="homepage">
-        <meta charset="utf-8">
-        <meta name="group" content="1">
-        <meta name="description" content="Reader">
-        <meta name="keywords" content="OCR, PDF, image, picture, reader, converter">
-        <link rel="stylesheet" href="style.css">
-    </head>
-<body>
+        <header class="header">
+        <nav class="nav">
+            <div class="left-links">
+                    <a class="brand" href="#" onclick="cancel()">OCR PDF Reader</a>    
+                    <button onclick="feedback()">Image to text</button>
+                    <button onclick="feedback()">Compress PDF</button>
+                    <button onclick="feedback()">All PDF tools</button>
+                    <button onclick="feedback()">Other tab lol</button>
+            </div>
 
-    <header class="header">
-        <nav class="left-links">  
-            <a href =# onclick="cancel()">OCR PDF Reader</a>
-            <button onClick="feedback()">About Us</button>
-            <button onClick="feedback()">Feedback</button>
-            <button class=awaybtn onclick="loginbar">Log in</button>
-            <button class=awaybtn onclick="loginbar2">Sign up</button>
+            <div class="right-links">
+            <button onclick="loginbar()">Log in</button>
+            <button onclick="loginbar2()">Sign up</button>
+            </div>
         </nav>
-    </header>
+        </header>
 
     <div class="container">
-
         <article class="main-content">
             <div class="banner">
                 <h1>PDF Reader</h1>
-                <p>
-                    <button type="submit" value="Submit" class="btn" onClick="feedback()">Select PDF/image file</button>
-                </p>        
-                
+
+                <input type="file" id="fileInput" hidden>
+
+                <div id="dropZone" class="dropzone">
+                    <button type="button" class="btn">Select PDF/image file</button>
+                </div>
+            </div>
         </article>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        const dropZone = document.getElementById('dropZone');
+        const fileInput = document.getElementById('fileInput');
+
+        dropZone.addEventListener('click', () => fileInput.click());
+
+        dropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropZone.classList.add('dragover');
+        });
+
+        dropZone.addEventListener('dragleave', () => {
+            dropZone.classList.remove('dragover');
+        });
+
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.classList.remove('dragover');
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                fileInput.files = files; 
+                alert(`You dropped: ${files[0].name}`);
+            }
+        });
+    </script>
 </body>
 </html>
