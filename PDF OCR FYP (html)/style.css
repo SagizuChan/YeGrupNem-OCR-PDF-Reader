@@ -5,18 +5,21 @@
     padding: 0;               
     font-family: "Times New Roman", Times, serif;  
     font-size: medium;        
-    line-height: normal;      
-    background-color: #fff;   
+    line-height: normal;       
     color: #000;              
     text-align: start;        
     word-wrap: normal;        
     overflow: visible;        
     height: 100vh;                       
 }
+body {
+  background-color: #ffffff;
+  color: #000000;
+}
 .homepage .nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 .homepage .header {
     padding: 4px 0px;
@@ -40,14 +43,10 @@
     text-decoration-color: #333;
     color: #ffffff;
     border: none;
-    cursor: pointer;
     border-radius: 5px;
 } 
 .homepage button:hover {
     background-color: #1a1a1a;
-}
-.homepage body{
-    background-color: #ffffff;
 }
 .homepage .container {
     justify-content: center;
@@ -66,38 +65,129 @@
     text-align: center;
     width: auto;
 }
-.homepage .banner {
+.homepage .banner { /*the center header things, like the select pdf file button, and so on*/
     width: 1300px;
     padding: 30px;
-    font-family: 'Inter', light; /*idk how to change fonts lol*/
+    margin: 20px;
+    font-family: 'Inter', light; 
     font-size: x-large;
-    background-color: white;
     text-align: center;
     text-decoration: underline;
     margin-bottom: 10px;
     box-sizing: border-box;
 }
-.homepage .loginbar {                  
-    padding: 10px;
-    box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.1); 
+.dropdown {
+    position: relative;
+    display: inline-block;
 }
+.dropdown-content { /*the sidebars background*/
+    display: none;
+    position: absolute;
+    background-color: #E6E2E2B2;
+    width: 1520px;
+    height: 150px;
+    column-count: 2;
+}
+.dropdown-content a {
+    display: inline-block;
+    width: auto;
+    min-width: 120px; 
+    padding: 0px 12px;
+    text-align: left;
+}
+.dropdown-content a:hover {
+    background-color: #dddddd76;
+}
+.dropdown:focus-within .dropdown-content {
+    display: block;
+    margin-left: -545px;
+    margin-top: 4px;
+}
+
+/*the current page help for the homepage*/
+.cpgHP {
+    position: relative;
+    display: inline-block;
+}
+.cpgloginHP {
+    display: none;
+    position: absolute;
+    left: 535%;
+    text-align-last: right;
+    top: 0px;
+    white-space: nowrap;
+}
+.cpgusageHP {
+    display: none;
+    position: absolute;
+    left: -110%;
+    text-align-last: center;
+    top: 140px;
+    white-space: nowrap;
+}
+.cpgspecificHP {
+    display: none;
+    position: absolute;
+    left: -385%;
+    text-align-last: left;
+    top: 80px;
+    white-space: nowrap;
+}
+.cpgHP:focus-within .cpgspecificHP,
+.cpgHP:focus-within .cpgusageHP,
+.cpgHP:focus-within .cpgloginHP {
+    display: block;
+}
+
+/*the current page help for the image converter*/
+.cpgIC {
+    position: relative;
+    display: inline-block;
+}
+.cpgloginIC {
+    display: none;
+    position: absolute;
+    left: 535%;
+    text-align-last: right;
+    top: 0px;
+    white-space: nowrap;
+}
+.cpgusageIC {
+    display: none;
+    position: absolute;
+    left: -120%;
+    text-align-last: center;
+    top: 140px;
+    white-space: nowrap;
+}
+.cpgspecificIC {
+    display: none;
+    position: absolute;
+    left: -385%;
+    text-align-last: left;
+    top: 80px;
+    white-space: nowrap;
+}
+.cpgIC:focus-within .cpgspecificIC,
+.cpgIC:focus-within .cpgusageIC,
+.cpgIC:focus-within .cpgloginIC{
+    display: block;
+}
+
+/*the dropzone*/
 .dropzone {
     display: inline-block;
     position: relative;
-    padding: 0;
+    padding: 0px;
     margin: 50px;
     cursor: pointer;
-}
-.dropzone button {
-    position: relative;
-    z-index: 2; 
 }
 .dropzone::before {
     content: "";
     position: absolute;
     inset: 0; 
-    border: 2px dashed #000;
-    border-radius: 5px;
+    border: 1px dashed #000;
+    border-radius: 4px;
     transition: transform 0.3s ease, border-color 0.3s ease;
     z-index: 1;
 }
@@ -106,15 +196,114 @@
     border-color: #333;
 }
 .dropzone:focus {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border: 2px dashed #000;
-  border-radius: 5px;
-  transition: transform 0.3s ease, border-color 0.3s ease;
-  z-index: 1;
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: dashed #000;
+    border-radius: 2px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    z-index: 1;
 }
 
+/*dark mode*/
+#darkModeToggle {
+    color: #333;
+}
+#darkModeToggle:hover {
+    background-color: #E6E4E4;
+}
+body.dark-mode .banner button{
+    background-color: #ededed;
+    color: #333;
+}
+body.dark-mode {
+    background-color: #333;
+    color: #ededed;
+}
+body.dark-mode .dropdown-content a {
+    color: #333;
+}
+body.dark-mode .cpgHP,
+body.dark-mode .cpgHP span,
+body.dark-mode .cpgIC,
+body.dark-mode .cpgIC span {
+    color: #ededed;
+}
+body.dark-mode .banner h1 {
+    color: #ededed;
+}
+body.dark-mode .banner {
+    background-color: #333;
+    width: 1300px;
+    padding: 30px;
+    margin: 20px auto;
+}
+body.dark-mode .nav { /**/
+    border: none;
+}
 
+/* imageconverter css */
+.dropdown-content-imagecon { /*the sidebars*/
+    display: none;
+    position: absolute;
+    background-color: rgba(230, 226, 226, 0.7);
+    width: 1520px;
+    height: 150px;
+    column-count: 2;
+}
+.dropdown-content-imagecon a {
+    display: inline-block;
+    width: auto;
+    min-width: 120px; 
+    padding: 0px 12px;
+    text-align: left;
+}
+.dropdown-content-imagecon a:hover {
+    background-color: #dddddd76;
+}
+.homepage .dropdown:focus-within .dropdown-content-imagecon {
+    display: block;
+    margin-left: -538px;
+    margin-top: 4px;
+}
 
-
+/* About us css */
+.about header {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: x-large;
+}
+.about button {
+    position: relative;
+    text-align: center;
+    padding: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: #058142;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;            
+    margin-bottom: 20px;           
+}
+.about button:hover {
+    background-color: #054c28;
+}
+.about {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+}
+.about .line {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    align-items: center;
+}
+.brendan, .darren, .ken, .jo, .isaac {
+    text-align: center;
+    max-width: 200px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.about img {
+    display: block;
+    margin: 0 auto 10px;
+}

@@ -10,16 +10,35 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body class="homepage">
 
         <header class="header">
         <nav class="nav">
             <div class="left-links">
-                    <a class="brand" href="#" onclick="cancel()">OCR PDF Reader</a>    
-                    <button onclick="feedback()">Image to text</button>
-                    <button onclick="feedback()">Compress PDF</button>
-                    <button onclick="feedback()">All PDF tools</button>
-                    <button onclick="feedback()">Other tab lol</button>
+                    <a class="brand" href="#" onclick="cancel()">OCR PDF Reader</a>
+                    <button onclick="location.href='imagecon.html'">Image to text</button>
+                    <button onclick="location.href='change this'">Compress PDF</button>
+                    <button onclick="location.href='change this'">All PDF tools</button>
+                    <div class="dropdown">
+                        <button class="dropbtn" onclick="nextPage()">More options</button>
+                        <div class="dropdown-content">
+                        <a href="#" id="darkModeToggle" onclick="toggleDarkMode(); return false;">Toggle dark mode</a>
+                        <a href="about.html">Contact/About us</a>
+                        <a href=#>Language</a>
+                        <a href="#" class="cpgHP">Help
+                            <span class="cpgloginHP">
+                                You do not need to log<br>in to use any of the<br>tools but if you want to<br>you can
+                            </span>
+                            <span class="cpgusageHP">
+                                Currently you are on PDF Converter.<br>Pressing "Select PDF file" will open your file explorer, use it to find a PDF file you would like to convert
+                            </span>
+                            <span class="cpgspecificHP">
+                                If you have more specific<br>questions, please visit<br>"Contact/About us"
+                            </span>
+                        </a>
+                        </div>
+                    </div>
             </div>
 
             <div class="right-links">
@@ -29,44 +48,25 @@
         </nav>
         </header>
 
+
     <div class="container">
-        <article class="main-content">
-            <div class="banner">
-                <h1>PDF Reader</h1>
+            <article class="main-content">
+                <div class="banner">
+                    <h1>PDF Reader</h1>
 
-                <input type="file" id="fileInput" hidden>
+                    <input type="file" id="fileInput" hidden>
 
-                <div id="dropZone" class="dropzone">
-                    <button type="button" class="btn">Select PDF/image file</button>
+                    <div id="dropZone" class="dropzone">
+                        <button type="button">Select PDF file</button>
+                    </div>
                 </div>
-            </div>
-        </article>
+            </article>
+        </div>
     </div>
 
-    <script>
-        const dropZone = document.getElementById('dropZone');
-        const fileInput = document.getElementById('fileInput');
+</div>
 
-        dropZone.addEventListener('click', () => fileInput.click());
+<script src="script.js"></script>
 
-        dropZone.addEventListener('dragover', (e) => {
-            e.preventDefault();
-            dropZone.classList.add('dragover');
-        });
-
-        dropZone.addEventListener('dragleave', () => {
-            dropZone.classList.remove('dragover');
-        });
-
-        dropZone.addEventListener('drop', (e) => {
-            e.preventDefault();
-            dropZone.classList.remove('dragover');
-            const files = e.dataTransfer.files;
-            if (files.length > 0) {
-                fileInput.files = files; 
-                alert(`You dropped: ${files[0].name}`);
-            }
-        });
-    </script>
 </body>
 </html>
