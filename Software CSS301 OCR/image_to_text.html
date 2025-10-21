@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image to text</title>
+    <link rel="stylesheet" href="style-login.css">
+</head>
+<body>
+  <header class="header">
+    <nav class="navbar">
+      <a class="nav-link" href="image_to_text.html">Image to Text</a>
+      <a class="nav-link" href="index.html">OCR Reader</a>
+      <a class="nav-link" href="compress pdf.html">Compress PDF</a>
+      <div class="dropdown" style="margin-left:auto;">
+        <a class="nav-link dropdown-toggle" href="#" aria-haspopup="true" aria-expanded="false">Others</a>
+        <div class="dropdown-menu" role="menu">
+          <a href="#">Placeholder 1</a>
+          <a href="#">Placeholder 2</a>
+          <a href="#">Placeholder 3</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container">
+    <article class="main-content">
+      <div class="banner">
+        <h1 id="test">Image to text</h1>
+        <div id="dropZone" class="dropzone">   
+          <input type="file" id="file_input", accept="image/*"> 
+          <button id="select_btn" onclick="open_file()">Select image </button>
+        </div>
+        <div class="loading_area">
+          <div id="wrapper">
+
+          <div class="loading-bar">
+            <div class="progress-bar"></div>
+          </div>
+          <div class="status">
+            <div class="state"></div>
+            <div class="percentage"></div>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</body>
+
+<!-- Touch-friendly dropdown toggle -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var toggles = document.querySelectorAll('.dropdown .dropdown-toggle');
+    toggles.forEach(function (toggle) {
+      toggle.addEventListener('click', function (e) {
+        e.preventDefault();
+        var dd = toggle.closest('.dropdown');
+        if (dd) dd.classList.toggle('open');
+      });
+    });
+    document.addEventListener('click', function (e) {
+      document.querySelectorAll('.dropdown.open').forEach(function (dd) {
+        if (!dd.contains(e.target)) dd.classList.remove('open');
+      });
+    });
+  });
+</script>
+
+<script src="loading.js"></script>
+<script src="dist/ITT-fucntion.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tesseract.js@4.1.1/dist/tesseract.min.js"></script>
+</html>

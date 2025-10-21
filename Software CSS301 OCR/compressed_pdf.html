@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compressed PDF</title>
+    <link rel="stylesheet" href="style-login.css">
+</head>
+<body>
+  <header class="header">
+    <nav class="navbar">
+      <a class="nav-link" href="image_to_text.html">Image to Text</a>
+      <a class="nav-link" href="index.html">OCR Reader</a>
+      <a class="nav-link" href="compress pdf.html">Compress PDF</a>
+      <div class="dropdown" style="margin-left:auto;">
+        <a class="nav-link dropdown-toggle" href="#" aria-haspopup="true" aria-expanded="false">Others</a>
+        <div class="dropdown-menu" role="menu">
+          <a href="#">Placeholder 1</a>
+          <a href="#">Placeholder 2</a>
+          <a href="#">Placeholder 3</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+    <main class="result-main">
+        <div class="container">
+            <article class="main-content">
+                <div class="banner result-banner">
+                    <h1>Compressed PDF</h1>
+                    <p id="result_meta" class="result-meta" aria-live="polite">Loading result…</p>
+                    <div class="result-actions">
+                        <a id="download_link" class="awaybtn" href="#" download>Download compressed PDF</a>
+                        <button id="upload_new_pdf" type="button" class="awaybtn">Upload PDF</button>
+                    </div>
+                    <!-- Hidden file input for uploading a new PDF from this page -->
+                    <input id="result_file_input" type="file" accept="application/pdf" style="display:none">
+                    <!-- Inline preview of the compressed PDF -->
+                    <div class="pdf-preview-wrap">
+                        <object id="pdf_preview" class="pdf-preview" type="application/pdf" data="" aria-label="Compressed PDF preview">
+                            <p>Your browser can’t display the preview. Use the download button above.</p>
+                        </object>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+ 
+    <!-- Libraries needed for in-page compression/preview -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script>
+      if (window['pdfjsLib']) {
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+      }
+    </script>
+    <!-- pdf-lib for non-raster copy of text PDFs -->
+    <script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+    <!-- Main logic (handles results page wiring) -->
+    <script src="Compress_pdf.js"></script>
+    <!-- Touch-friendly dropdown toggle -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        var toggles = document.querySelectorAll('.dropdown .dropdown-toggle');
+        toggles.forEach(function (toggle) {
+          toggle.addEventListener('click', function (e) {
+            e.preventDefault();
+            var dd = toggle.closest('.dropdown');
+            if (dd) dd.classList.toggle('open');
+          });
+        });
+        document.addEventListener('click', function (e) {
+          document.querySelectorAll('.dropdown.open').forEach(function (dd) {
+            if (!dd.contains(e.target)) dd.classList.remove('open');
+          });
+        });
+      });
+    </script>
+ </body>
+ </html>

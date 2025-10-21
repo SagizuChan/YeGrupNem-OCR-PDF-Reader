@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style-login.css">
+
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <a class="nav-link" href="image_to_text.html">Image to Text</a>
+            <a class="nav-link" href="index.html">OCR Reader</a>
+            <a class="nav-link" href="compress pdf.html">Compress PDF</a>
+
+            <div class="dropdown" style="margin-left:auto;">
+                <a class="nav-link dropdown-toggle" href="#" aria-haspopup="true" aria-expanded="false">Others</a>
+                <div class="dropdown-menu" role="menu">
+                    <a href="#">Placeholder 1</a>
+                    <a href="#">Placeholder 2</a>
+                    <a href="#">Placeholder 3</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="login-container">
+        <form class="login-form" id="login-form">
+            <h2>Login</h2>
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">Login</button>
+            <div class="register"><a href="register.html">Don't have an account? Sign up</a></div>
+            <div class="divider"><span>or</span></div>
+            <div class="third-party-buttons">
+                <button type="button" class="third-party google">Login with Google</button>
+                <button type="button" class="third-party facebook">Login with Facebook</button>
+                <button type="button" class="third-party github">Login with Github</button>
+            </div>
+        </form>
+        <script>
+        function showTab(tab) {
+            document.getElementById('login-form').style.display = tab === 'login' ? '' : 'none';
+            document.getElementById('register-form').style.display = tab === 'register' ? '' : 'none';
+            var btns = document.querySelectorAll('.tab-btn');
+            btns.forEach(function(btn) { btn.classList.remove('active'); });
+            if(tab === 'login') btns[0].classList.add('active');
+            else btns[1].classList.add('active');
+        }
+        </script>
+    </div>
+    <!-- Touch-friendly dropdown toggle -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var toggles = document.querySelectorAll('.dropdown .dropdown-toggle');
+            toggles.forEach(function (toggle) {
+                toggle.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    var dd = toggle.closest('.dropdown');
+                    if (dd) dd.classList.toggle('open');
+                });
+            });
+            document.addEventListener('click', function (e) {
+                document.querySelectorAll('.dropdown.open').forEach(function (dd) {
+                    if (!dd.contains(e.target)) dd.classList.remove('open');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>OCR PDF Reader</title>
+    <meta charset="utf-8">
+    <meta name="group" content="1">
+    <meta name="description" content="Reader">
+    <meta name="keywords" content="OCR, PDF, image, picture, reader, converter">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="homepage">
+
+        <header class="header">
+        <nav class="nav">
+            <div class="left-links">
+                    <a class="brand" href="#" onclick="cancel()">OCR PDF Reader</a>    
+                    <button onclick="location.href='image_to_text.html'">Image to text</button>
+                    <button onClick="location.href='compress pdf.html'">Compress PDF</button>
+                    <button onclick="feedback()">All PDF tools</button>
+                    <button onclick="feedback()">Other tab lol</button>
+            </div>
+
+            <div class="right-links">
+            <button onclick="location.href='login.html'">Log in</button>
+            <button onclick="location.href='register.html'">Sign up</button>
+            </div>
+        </nav>
+        </header>
+
+    <div class="container">
+        <article class="main-content">
+            <div class="banner">
+                <h1>PDF Reader</h1>
+
+                <input type="file" id="fileInput" hidden>
+
+                <div id="dropZone" class="dropzone">
+                    <button type="button" class="btn">Select PDF/image file</button>
+                </div>
+            </div>
+        </article>
+    </div>
+
+</body>
+</html>

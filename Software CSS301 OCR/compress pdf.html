@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compress PDF</title>
+    <link rel="stylesheet" href="style-login.css">
+</head>
+<body>
+<header class="header">
+        <nav class="navbar">
+            <a class="nav-link" href="image_to_text.html">Image to Text</a>
+            <a class="nav-link" href="index.html">OCR Reader</a>
+            <a class="nav-link" href="compress pdf.html">Compress PDF</a>
+            <div class="dropdown" style="margin-left:auto;">
+                <a class="nav-link dropdown-toggle" href="#" aria-haspopup="true" aria-expanded="false">Others</a>
+                <div class="dropdown-menu" role="menu">
+                    <a href="#">Placeholder 1</a>
+                    <a href="#">Placeholder 2</a>
+                    <a href="#">Placeholder 3</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+  <main class="result-main" id="compress_page">
+    <div class="container">
+      <article class="main-content">
+        <div class="banner result-banner">
+          <h1>Compress PDF</h1>
+          <div class="result-actions" style="margin-bottom:10px;">
+            <button id="select_btn" class="awaybtn" type="button" onclick="open_file()">Select PDF</button>
+            <select id="compress_level" aria-label="Compression level" class="awaybtn">
+              <option value="low">Low (smallest)</option>
+              <option value="medium" selected>Medium</option>
+              <option value="high">High (best quality)</option>
+            </select>
+          </div>
+          <div class="compression_lvl">
+            <button id="compress_btn" class="awaybtn" type="button">Compress</button>
+          </div>
+
+          <input id="file_input" type="file" accept=".pdf,application/pdf" style="display:none">
+          <div id="compress_status"></div>
+
+          <!-- Loading bar (used by Compress_pdf.js) -->
+          <div class="loading_area" style="display:none;">
+            <div id="wrapper">
+              <div class="loading-bar">
+                <div class="progress-bar"></div>
+              </div>
+              <div class="status">
+                <div class="state">Starting...</div>
+                <div class="percentage">0%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <!-- Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script>
+    if (window['pdfjsLib']) {
+      pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+  <script src="Compress_pdf.js"></script>
+</body>
+</html>

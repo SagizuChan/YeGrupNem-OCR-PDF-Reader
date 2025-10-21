@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="style-login.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <a class="nav-link" href="image_to_text.html">Image to Text</a>
+            <a class="nav-link" href="index.html">OCR Reader</a>
+            <a class="nav-link" href="compress pdf.html">Compress PDF</a>
+
+            <div class="dropdown" style="margin-left:auto;">
+                <a class="nav-link dropdown-toggle" href="#" aria-haspopup="true" aria-expanded="false">Others</a>
+                <div class="dropdown-menu" role="menu">
+                    <a href="#">Placeholder 1</a>
+                    <a href="#">Placeholder 2</a>
+                    <a href="#">Placeholder 3</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="login-container">
+        <form class="login-form">
+            <h2>Register</h2>
+            <div class="input-group">
+                <label for="reg-username">Username</label>
+                <input type="text" id="reg-username" name="reg-username" required>
+            </div>
+            <div class="input-group">
+                <label for="reg-email">Email</label>
+                <input type="email" id="reg-email" name="reg-email" required>
+            </div>
+            <div class="input-group">
+                <label for="reg-password">Password</label>
+                <input type="password" id="reg-password" name="reg-password" required>
+            </div>
+            <div class="input-group">
+                <label for="reg-confirm">Confirm Password</label>
+                <input type="password" id="reg-confirm" name="reg-confirm" required>
+            </div>
+            <button type="submit">Register</button>
+            <div class="divider"><span>or</span></div>
+            <div class="third-party-buttons">
+                <button type="button" class="third-party google">Register with Google</button>
+                <button type="button" class="third-party facebook">Register with Facebook</button>
+                <button type="button" class="third-party github">Register with Github</button>
+            </div>
+            <div class="register"><a href="login.html">Already have an account? Log in</a></div>
+        </form>
+    </div>
+</body>
+</html>
